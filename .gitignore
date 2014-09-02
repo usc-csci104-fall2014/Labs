@@ -1,0 +1,34 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.exe
+
+# Project specific
+shape1
+shape2
+lab3/lab3
+
+#Bin and Obj directories
+bin/
+obj/
+
+# Other
+*.stackdump
+*~
+.settings/
+.project
+.cproject
+
+#OS files
+.Trash
+.DS_Store
