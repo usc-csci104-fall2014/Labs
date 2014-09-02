@@ -1,0 +1,30 @@
+IDIR =.
+CC=g++
+CFLAGS=-I$(IDIR) -std=c++11 -ggdb
+
+ODIR=.
+LDIR =../lib
+
+LIBS=-lm
+
+_DEPS = shape.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ = shape.o shape1.o shape2.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+$(ODIR)/%.o: %.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+all: shape1 shape2
+
+shape1: shape1.o shape.o
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+shape2: shape2.o shape.o
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+.PHONY: clean
+
+clean:
+	rm -f $(ODIR)/*.o *~ shape1 shape2 $(IDIR)/*~
