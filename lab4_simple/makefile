@@ -28,7 +28,7 @@ all: lab4
 $(OBJ_DIR)/BoundedList.o: $(HEADER_DIR)/BoundedListImpl.h $(HEADER_DIR)/BoundedList.h 
 	$(CC) -c $< -o $@ $(CPPFLAGS) -I${HEADER_DIR}/
 
-$(OBJ_DIR)/main.o: $(SRC_DIR)/main.cpp
+$(OBJ_DIR)/main.o: $(SRC_DIR)/main.cpp $(OBJ_DIR)/.dirstamp
 	$(CC) -c $< -o $@ $(CPPFLAGS) -I${HEADER_DIR}/
 
 $(OBJ_DIR)/Data.o: $(SRC_DIR)/Data.cpp $(HEADER_DIR)/Data.h $(OBJ_DIR)/.dirstamp
