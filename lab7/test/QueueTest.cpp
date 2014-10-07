@@ -1,19 +1,19 @@
-#include "stack.h"
+#include "queue.h"
 #include "gtest/gtest.h"
 
 // The fixture for testing class
-class StackTest: public ::testing::Test
+class QueueTest: public ::testing::Test
 {
 protected:
 	// You can remove any or all of the following functions if its body
 	// is empty.
 
-	StackTest()
+	QueueTest()
 	{
 		// You can do set-up work for each test here.
 	}
 
-	virtual ~StackTest()
+	virtual ~QueueTest()
 	{
 		// You can do clean-up work that doesn't throw exceptions here.
 	}
@@ -34,18 +34,18 @@ protected:
 	}
 
 	// Objects declared here can be used by all tests
-	stack<int> s;
+	queue<int> s;
 };
 
-TEST_F(StackTest, OnePushPop)
+TEST_F(QueueTest, OneEnDe)
 {
   EXPECT_FALSE(true);//just to show you how it works, remove me
   ASSERT_FALSE(true);//just to show you how it works, remove me
-  //fill in the code from the lab writeup here
+  //fill in the code from the lab writeup here.
 }
 
-TEST_F(StackTest, Scale)
+TEST_F(QueueTest, Scale)
 {
-	// Exercises the Xyz feature of Foo.
+	
 }
 

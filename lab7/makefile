@@ -29,13 +29,13 @@ GTEST_CPPFLAGS = -Wall -g -I$(HEADER_DIR) -I$(SRC_DIR) -Wextra -pthread -std=gnu
 
 # Rules for the actual program
 
-all: $(BIN_DIR)/StackGame
+all: $(BIN_DIR)/ListGame
 	-@echo "--- All Built!---"
 
-$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)/StackGame.h $(HEADER_DIR)/* $(BIN_DIR)/.dirstamp
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)/ListGame.h $(HEADER_DIR)/* $(BIN_DIR)/.dirstamp
 	$(CC) $(CPPFLAGS) -c $< -o $@
-	
-$(BIN_DIR)/StackGame: $(BIN_DIR)/StackGame.o $(BIN_DIR)/ui.o
+
+$(BIN_DIR)/ListGame: $(BIN_DIR)/ListGame.o $(BIN_DIR)/ui.o
 	$(CC) $(CPPFLAGS) $^ -o $@
 
 # Rules for compiling and running all test cases in 'test folder'
@@ -43,7 +43,7 @@ $(BIN_DIR)/StackGame: $(BIN_DIR)/StackGame.o $(BIN_DIR)/ui.o
 $(BIN_DIR)/%.test.o: $(TEST_DIR)/%.cpp $(SRC_DIR)/* $(HEADER_DIR)/* $(BIN_DIR)/.dirstamp
 	$(CC) $(GTEST_CPPFLAGS) $(GTEST_LL) -c $< -o $@
 
-$(BIN_DIR)/GameTest: $(TEST_CASES) $(BIN_DIR)/StackGame.o
+$(BIN_DIR)/GameTest: $(TEST_CASES) $(BIN_DIR)/ListGame.o
 	$(CC) $(GTEST_CPPFLAGS) $^ $(GTEST_LL) -o $@
 
 # Rule to ensure the $(BIN_DIR) directory exist or it'll create it.
@@ -57,7 +57,7 @@ $(BIN_DIR)/.dirstamp:
 tests: $(BIN_DIR)/GameTest
 	-@$(BIN_DIR)/GameTest
 	-@echo "--- All Tested!---"
-	
+
 clean:
 	-@rm -rf $(BIN_DIR)
 	-@echo "--- All Clean!---"

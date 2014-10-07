@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "StackGame.h"
+#include "ListGame.h"
 
 int main(int argv, char* argc[])
 {
@@ -8,13 +8,13 @@ int main(int argv, char* argc[])
 	if (argv != 2)
 	{
 		std::cout << "Error: Not enough arguments" << std::endl;
-		std::cout << "       Run the program with: \"StackGame <sequence>\"" << std::endl;
+		std::cout << "       Run the program with: \"ListGame <sequence>\"" << std::endl;
 		return -1;
 	}
 
 	try
 	{
-		StackGame g(argc[1]);
+		ListGame g(argc[1]);
 		int point = g.Run();
 		std::cout << "Game ended. Point = " << point << std::endl;
 	}
