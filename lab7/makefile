@@ -29,13 +29,16 @@ GTEST_CPPFLAGS = -Wall -g -I$(HEADER_DIR) -I$(SRC_DIR) -Wextra -pthread -std=gnu
 
 # Rules for the actual program
 
-all: $(BIN_DIR)/ListGame
+all: $(BIN_DIR)/ListGame $(BIN_DIR)/Endorsement
 	-@echo "--- All Built!---"
 
 $(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)/ListGame.h $(HEADER_DIR)/* $(BIN_DIR)/.dirstamp
 	$(CC) $(CPPFLAGS) -c $< -o $@
 
 $(BIN_DIR)/ListGame: $(BIN_DIR)/ListGame.o $(BIN_DIR)/ui.o
+	$(CC) $(CPPFLAGS) $^ -o $@
+
+$(BIN_DIR)/Endorsement: $(BIN_DIR)/Endorsement.o
 	$(CC) $(CPPFLAGS) $^ -o $@
 
 # Rules for compiling and running all test cases in 'test folder'
